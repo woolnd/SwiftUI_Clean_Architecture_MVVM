@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6D77C2D62EF413C3005AEAE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */; };
+		6D77C2D72EF413C3005AEAE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2D32EF413C3005AEAE8 /* ContentView.swift */; };
+		6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */; };
+		6D77C2E22EF414AA005AEAE8 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */; };
+		6D77C2E42EF414CC005AEAE8 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6D77C2B62EF40E20005AEAE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +35,14 @@
 		6D77C2A82EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D77C2B52EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D77C2BF2EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D77C2D32EF413C3005AEAE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Clean_Architecture_MVVMApp.swift; sourceTree = "<group>"; };
+		6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftUI_Clean_Architecture_MVVM;
-			sourceTree = "<group>";
-		};
 		6D77C2B82EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftUI_Clean_Architecture_MVVMTests;
@@ -75,7 +83,7 @@
 		6D77C29F2EF40E1F005AEAE8 = {
 			isa = PBXGroup;
 			children = (
-				6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
+				6D77C2D52EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
 				6D77C2B82EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests */,
 				6D77C2C22EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMUITests */,
 				6D77C2A92EF40E1F005AEAE8 /* Products */,
@@ -92,6 +100,66 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6D77C2D52EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2DE2EF413EB005AEAE8 /* App */,
+				6D77C2D92EF413C8005AEAE8 /* Presentation */,
+				6D77C2DB2EF413D8005AEAE8 /* Domain */,
+				6D77C2DD2EF413E8005AEAE8 /* Data */,
+				6D77C2DF2EF41426005AEAE8 /* Resources */,
+			);
+			path = SwiftUI_Clean_Architecture_MVVM;
+			sourceTree = "<group>";
+		};
+		6D77C2D92EF413C8005AEAE8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6D77C2DB2EF413D8005AEAE8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6D77C2DD2EF413E8005AEAE8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6D77C2DE2EF413EB005AEAE8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */,
+				6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */,
+				6D77C2E02EF4145D005AEAE8 /* DIContainer */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6D77C2DF2EF41426005AEAE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */,
+				6D77C2D32EF413C3005AEAE8 /* ContentView.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6D77C2E02EF4145D005AEAE8 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +174,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
 			);
 			name = SwiftUI_Clean_Architecture_MVVM;
 			packageProductDependencies = (
@@ -212,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D77C2D62EF413C3005AEAE8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D77C2E42EF414CC005AEAE8 /* AppFlowCoordinator.swift in Sources */,
+				6D77C2D72EF413C3005AEAE8 /* ContentView.swift in Sources */,
+				6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */,
+				6D77C2E22EF414AA005AEAE8 /* AppDIContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
