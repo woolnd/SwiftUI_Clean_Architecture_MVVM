@@ -32,7 +32,9 @@ struct CatFeedView: View {
                     spacing: spacing) {
                         ForEach(viewModel.items, id: \.id) { item in
                             CatFeedItemView(
-                                imageURL: "https://cataas.com/cat/\(item.id)"
+                              imageURL: "https://cataas.com/cat/\(item.id)",
+                              targetSize: CGSize(width: side, height: side),
+                              scale: displayScale
                             )
                             .frame(width: side, height: side)
                             .clipped()

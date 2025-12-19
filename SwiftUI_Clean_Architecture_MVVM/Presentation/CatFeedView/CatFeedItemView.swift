@@ -10,6 +10,8 @@ import Combine
 
 struct CatFeedItemView: View {
     let imageURL: String
+    let targetSize: CGSize
+    let scale: CGFloat
     
     @State private var uiImage: UIImage?
     @State private var isLoading = false
@@ -36,20 +38,19 @@ struct CatFeedItemView: View {
     }
     
     private func loadAndDownsample() async {
-        do {
-            let image = try await ImageDownsamplingManager.downsample(
-                remoteURL: URL(string: imageURL)!,
-                to: CGSize(width: 200, height: 200)
-            )
+        isLoading = true
+        error = false
+        defer { isLoading = false }
 
+        do {
+            let image = try await CatImageLoader.shared.load(
+                urlString: imageURL,
+                targetSize: targetSize,
+                scale: scale
+            )
             self.uiImage = image
-            self.isLoading = false
         } catch {
-            self.isLoading = false
+            self.error = true
         }
     }
-}
-
-#Preview {
-    CatFeedItemView(imageURL: "")
 }
