@@ -29,7 +29,7 @@ final class FetchCatPhotoUseCase: UseCase {
     }
     
     @discardableResult
-    func start() -> (any Cancellable)? {
+    func start() -> Cancellable? {
         return catPhotoRepository.fetchCatPhoto(
             type: requestValue.type,
             position: requestValue.position,

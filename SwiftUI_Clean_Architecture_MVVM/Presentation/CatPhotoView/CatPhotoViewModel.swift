@@ -24,6 +24,7 @@ final class CatPhotoViewModel: ObservableObject {
     }
     
     func fetch(type: String = "square", position: String = "center") {
+
         cancellable?.cancel()
         errorMessage = nil
         isLoading = true

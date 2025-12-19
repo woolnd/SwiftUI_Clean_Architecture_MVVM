@@ -30,18 +30,13 @@ final class CatPhotoSceneDIContainer {
     }
     
     func makeCatPhotoViewModel() -> CatPhotoViewModel {
-        CatPhotoViewModel { [weak self] completion in
-            guard let self else { return EmptyUseCase() }
-            
-            let requestValue = FetchCatPhotoUseCase.RequestValue(
-                type: "square",
-                position: "center"
-            )
-
-            
-            return self.makeFetchCatPhotoUseCase(
-                requestValue: requestValue,
-                completion: completion
+        let repo = makeCatPhotoRepository()
+        
+        return CatPhotoViewModel { completion in
+            FetchCatPhotoUseCase(
+                requestValue: .init(type: "square", position: "center"),
+                completion: completion,
+                catPhotoRepository: repo
             )
         }
     }
