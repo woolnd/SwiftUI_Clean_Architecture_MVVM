@@ -11,7 +11,7 @@ import UIKit
 
 @MainActor
 final class CatFeedViewModel: ObservableObject {
-    @Published var uiImage: UIImage?
+    @Published var items: [CatFeedItem] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     
@@ -29,14 +29,13 @@ final class CatFeedViewModel: ObservableObject {
         cancellable?.cancel()
         errorMessage = nil
         isLoading = true
-        uiImage = nil
         
         let useCase = fetchUseCase{ [weak self] result in
             guard let self else { return }
             
             switch result {
             case .success(let catFeed):
-                print(catFeed)
+                self.items = catFeed
             case .failure(let error):
                 self.errorMessage = self.mapError(error)
             }
@@ -64,21 +63,6 @@ final class CatFeedViewModel: ObservableObject {
         case .server(let statusCode, _): return "서버 오류(\(statusCode))가 발생했어요"
         case .decoding: return "응답 해석에 실패했어요"
         case .unknown: return "알 수 없는 오류가 발생했어요"
-        }
-    }
-    
-    private func loadAndDownsample(from url: URL) async {
-        do {
-            let image = try await ImageDownsamplingManager.downsample(
-                remoteURL: url,
-                to: CGSize(width: 200, height: 200)
-            )
-
-            self.uiImage = image
-            self.isLoading = false
-        } catch {
-            self.isLoading = false
-            self.errorMessage = "이미지 로딩 실패"
         }
     }
 }

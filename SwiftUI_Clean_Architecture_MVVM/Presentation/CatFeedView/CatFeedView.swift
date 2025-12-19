@@ -9,12 +9,41 @@ import SwiftUI
 
 struct CatFeedView: View {
     @StateObject var viewModel: CatFeedViewModel
+    @Environment(\.displayScale) private var displayScale
+    
+    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 0), count: 3)
+    private let spacing: CGFloat = 2
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear(){
-                viewModel.fetch()
+        GeometryReader { geo in
+            let spacing: CGFloat = 2
+            let horizontalPadding: CGFloat = 2
+            let columnsCount = 3
+            
+            let totalSpacing = spacing * CGFloat(columnsCount - 1)
+            let totalPadding = horizontalPadding * 2
+            
+            let availableWidth = geo.size.width - totalSpacing - totalPadding
+            let side = floor(availableWidth / CGFloat(columnsCount))
+            
+            ScrollView {
+                LazyVGrid(
+                    columns: columns,
+                    spacing: spacing) {
+                        ForEach(viewModel.items, id: \.id) { item in
+                            CatFeedItemView(
+                                imageURL: "https://cataas.com/cat/\(item.id)"
+                            )
+                            .frame(width: side, height: side)
+                            .clipped()
+                        }
+                    }
+                    .padding(.horizontal, horizontalPadding)
             }
+        }
+        .onAppear(){
+            viewModel.fetch()
+        }
     }
 }
 

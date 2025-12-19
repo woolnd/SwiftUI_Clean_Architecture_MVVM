@@ -46,6 +46,7 @@
 		6D77C3A02EF53980005AEAE8 /* CatFeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C39F2EF53980005AEAE8 /* CatFeedRepository.swift */; };
 		6D77C3A22EF539E4005AEAE8 /* DefaultCatFeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3A12EF539E4005AEAE8 /* DefaultCatFeedRepository.swift */; };
 		6D77C3A42EF53A60005AEAE8 /* CatFeedSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3A32EF53A60005AEAE8 /* CatFeedSceneDIContainer.swift */; };
+		6D77C3A82EF58CAD005AEAE8 /* CatFeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3A72EF58CAD005AEAE8 /* CatFeedItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		6D77C39F2EF53980005AEAE8 /* CatFeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFeedRepository.swift; sourceTree = "<group>"; };
 		6D77C3A12EF539E4005AEAE8 /* DefaultCatFeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCatFeedRepository.swift; sourceTree = "<group>"; };
 		6D77C3A32EF53A60005AEAE8 /* CatFeedSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFeedSceneDIContainer.swift; sourceTree = "<group>"; };
+		6D77C3A72EF58CAD005AEAE8 /* CatFeedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFeedItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -375,6 +377,7 @@
 			children = (
 				6D77C3872EF52801005AEAE8 /* CatFeedView.swift */,
 				6D77C3892EF5280A005AEAE8 /* CatFeedViewModel.swift */,
+				6D77C3A72EF58CAD005AEAE8 /* CatFeedItemView.swift */,
 			);
 			path = CatFeedView;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */,
 				6D77C3942EF52D87005AEAE8 /* MainFlowRootView.swift in Sources */,
 				6D77C2F62EF4C640005AEAE8 /* CatPhoto.swift in Sources */,
+				6D77C3A82EF58CAD005AEAE8 /* CatFeedItemView.swift in Sources */,
 				6D77C3012EF4C785005AEAE8 /* UseCase.swift in Sources */,
 				6D77C38C2EF5281E005AEAE8 /* MainViewActions.swift in Sources */,
 				6D77C3182EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift in Sources */,
