@@ -26,7 +26,6 @@ extension DefaultCatPhotoRepository: CatPhotoRepository {
         let task = Task {
             do {
                 let dto = try await apiClient.request(.fetchCatPhoto(type: type, position: position))
-                
                 guard let domain = dto.toDomain() else {
                     completion(.failure(.server(statusCode: 200, message: "Invalid URL: \(dto.url)")))
                     return

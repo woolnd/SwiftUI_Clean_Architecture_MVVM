@@ -24,13 +24,10 @@ extension DefaultCatFeedRepository: CatFeedRepository {
     ) -> (any Cancellable)? {
         let task = Task {
             do {
-                let dto = try await apiClient.request(.fetchCatFeed(limit: limit, skip: skip))
+                let dto: [CatFeedItemResponseDTO] =
+                try await apiClient.request(.fetchCatFeed(limit: limit, skip: skip))
                 
-                guard let domain = dto.toDomain() else {
-                    completion(.failure(.server(statusCode: 200, message: "Invalid")))
-                    return
-                }
-                
+                let domain: CatFeed = dto.toDomain()
                 completion(.success(domain))
             } catch let apiError as APIError {
                 completion(.failure(apiError))

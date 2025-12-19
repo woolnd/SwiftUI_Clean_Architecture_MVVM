@@ -19,4 +19,8 @@ final class AppDIContainer {
     func makeCatPhotoSceneDIContainer() -> CatPhotoSceneDIContainer {
         CatPhotoSceneDIContainer(apiClient: apiClient)
     }
+    
+    func makeCatFeedSceneDIContainer() -> CatFeedSceneDIContainer {
+        CatFeedSceneDIContainer(apiClient: apiClient)
+    }
 }

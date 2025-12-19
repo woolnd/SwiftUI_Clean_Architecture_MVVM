@@ -27,6 +27,8 @@ final class MainSceneDIContainer: MainFlowCoordinatorDependencies {
     }
     
     func makeCatFeedView() -> CatFeedView {
-        CatFeedView()
+        let scene = appDIContainer.makeCatFeedSceneDIContainer()
+        let vm = scene.makeCatFeedViewModel()
+        return CatFeedView(viewModel: vm)
     }
 }

@@ -346,8 +346,8 @@
 		6D77C30F2EF4D375005AEAE8 /* CatPhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */,
 				6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */,
+				6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */,
 			);
 			path = CatPhotoView;
 			sourceTree = "<group>";

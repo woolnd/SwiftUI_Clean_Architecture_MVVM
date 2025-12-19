@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CatFeed: Identifiable, Hashable {
+struct CatFeedItem: Identifiable, Hashable {
     let id: String
     let tags: [String]
     let mimetype: String
-    let createdAt: Date?
+    let createdAt: String
 }
