@@ -17,8 +17,10 @@ final class CatPhotoViewModel: ObservableObject {
     private let fetchUseCase: (_ completion: @escaping (Result<CatPhoto, APIError>) -> Void) -> UseCase
     private var cancellable: Cancellable?
     
-    init(fetchUseCase: @escaping (_: @escaping (Result<CatPhoto, APIError>) -> Void) -> UseCase) {
-        self.fetchUseCase = fetchUseCase
+    init(
+        fetchUseCase: @escaping (_: @escaping (Result<CatPhoto, APIError>) -> Void)
+        -> UseCase) {
+            self.fetchUseCase = fetchUseCase
     }
     
     func fetch(type: String = "square", position: String = "center") {

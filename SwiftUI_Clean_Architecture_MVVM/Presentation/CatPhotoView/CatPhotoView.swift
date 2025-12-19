@@ -39,7 +39,8 @@ struct CatPhotoView: View {
                 viewModel.fetch()
             }
             .buttonStyle(.borderedProminent)
-            .disabled(!viewModel.isLoading)
+            .disabled(viewModel.isLoading)
+            .padding()
         }
         .padding()
         .onDisappear(){

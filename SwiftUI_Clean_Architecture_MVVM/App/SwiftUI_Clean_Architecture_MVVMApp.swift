@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SwiftUI_Clean_Architecture_MVVMApp: App {
+    
+    @StateObject private var appFlow = AppFlowCoordinator(appDIContainer: AppDIContainer())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            appFlow.makeRootView()
         }
     }
 }

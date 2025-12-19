@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+final class AppDIContainer {
+    lazy var apiClient: APIClient = {
+        DefaultAPIClient(baseURL: URL(string: "https://cataas.com")!)
+    }()
+    
+    func makeCatPhotoSceneDIContainer() -> CatPhotoSceneDIContainer {
+        CatPhotoSceneDIContainer(apiClient: apiClient)
+    }
+}

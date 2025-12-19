@@ -27,7 +27,7 @@
 		6D77C30E2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C30D2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift */; };
 		6D77C3112EF4D38F005AEAE8 /* CatPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */; };
 		6D77C3132EF4D6A1005AEAE8 /* CatPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */; };
-		6D77C3162EF4D9A9005AEAE8 /* CatPhotoFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3152EF4D9A9005AEAE8 /* CatPhotoFlowCoordinator.swift */; };
+		6D77C3182EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,7 @@
 		6D77C30D2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatPhotoResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoViewModel.swift; sourceTree = "<group>"; };
 		6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoView.swift; sourceTree = "<group>"; };
-		6D77C3152EF4D9A9005AEAE8 /* CatPhotoFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoFlowCoordinator.swift; sourceTree = "<group>"; };
+		6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoSceneDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -197,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */,
+				6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -296,19 +297,10 @@
 		6D77C30F2EF4D375005AEAE8 /* CatPhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				6D77C3142EF4D973005AEAE8 /* Flows */,
 				6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */,
 				6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */,
 			);
 			path = CatPhotoView;
-			sourceTree = "<group>";
-		};
-		6D77C3142EF4D973005AEAE8 /* Flows */ = {
-			isa = PBXGroup;
-			children = (
-				6D77C3152EF4D9A9005AEAE8 /* CatPhotoFlowCoordinator.swift */,
-			);
-			path = Flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,7 +453,6 @@
 				6D77C30A2EF4CB57005AEAE8 /* APIEndpoints.swift in Sources */,
 				6D77C3112EF4D38F005AEAE8 /* CatPhotoViewModel.swift in Sources */,
 				6D77C30C2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift in Sources */,
-				6D77C3162EF4D9A9005AEAE8 /* CatPhotoFlowCoordinator.swift in Sources */,
 				6D77C3082EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift in Sources */,
 				6D77C2E42EF414CC005AEAE8 /* AppFlowCoordinator.swift in Sources */,
 				6D77C3132EF4D6A1005AEAE8 /* CatPhotoView.swift in Sources */,
@@ -470,6 +461,7 @@
 				6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */,
 				6D77C2F62EF4C640005AEAE8 /* CatPhoto.swift in Sources */,
 				6D77C3012EF4C785005AEAE8 /* UseCase.swift in Sources */,
+				6D77C3182EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift in Sources */,
 				6D77C2ED2EF41C90005AEAE8 /* APIError.swift in Sources */,
 				6D77C3042EF4C7B5005AEAE8 /* Cancellable.swift in Sources */,
 				6D77C30E2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift in Sources */,
