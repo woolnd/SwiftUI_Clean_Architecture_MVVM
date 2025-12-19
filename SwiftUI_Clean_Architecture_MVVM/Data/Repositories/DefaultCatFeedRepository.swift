@@ -1,5 +1,5 @@
 //
-//  DefaultCatPhotoRepository.swift
+//  DefaultCatMetaRepository.swift
 //  SwiftUI_Clean_Architecture_MVVM
 //
 //  Created by wodnd on 12/19/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DefaultCatPhotoRepository {
+final class DefaultCatFeedRepository {
     
     private let apiClient: APIClient
     
@@ -16,21 +16,18 @@ final class DefaultCatPhotoRepository {
     }
 }
 
-extension DefaultCatPhotoRepository: CatPhotoRepository {
-    func fetchCatPhoto(
-        type: String,
-        position: String,
-        completion: @escaping (Result<CatPhoto, APIError>) -> Void
+extension DefaultCatFeedRepository: CatFeedRepository {
+    func fetchCatFeed(
+        limit: Int64,
+        skip: Int64,
+        completion: @escaping (Result<CatFeed, APIError>) -> Void
     ) -> (any Cancellable)? {
-        
         let task = Task {
             do {
-                let dto = try await apiClient.request(.fetchCatPhoto(type: type, position: position))
-                guard let domain = dto.toDomain() else {
-                    completion(.failure(.server(statusCode: 200, message: "Invalid URL: \(dto.url)")))
-                    return
-                }
+                let dto: [CatFeedItemResponseDTO] =
+                try await apiClient.request(.fetchCatFeed(limit: limit, skip: skip))
                 
+                let domain: CatFeed = dto.toDomain()
                 completion(.success(domain))
             } catch let apiError as APIError {
                 completion(.failure(apiError))

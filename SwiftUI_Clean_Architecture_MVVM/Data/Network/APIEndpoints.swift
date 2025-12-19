@@ -21,3 +21,17 @@ extension Endpoint where Response == CatPhotoResponseDTO {
         )
     }
 }
+
+extension Endpoint where Response == [CatFeedItemResponseDTO] {
+    static func fetchCatFeed(limit: Int64, skip: Int64) -> Endpoint {
+        Endpoint(
+            path: "api/cats",
+            method: .get,
+            parameters: [
+                "limit": limit,
+                "skip": skip
+            ],
+            headers: ["Accept": "application/json"]
+        )
+    }
+}

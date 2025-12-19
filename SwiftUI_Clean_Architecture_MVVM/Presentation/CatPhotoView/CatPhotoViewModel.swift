@@ -39,7 +39,8 @@ final class CatPhotoViewModel: ObservableObject {
             case .success(let catPhoto):
                 self.imageTask = Task {
                     await self.loadAndDownsample(from: catPhoto.url)
-                }            case .failure(let error):
+                }
+            case .failure(let error):
                 self.errorMessage = self.mapError(error)
             }
         }

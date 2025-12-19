@@ -9,6 +9,61 @@ import Foundation
 import UIKit
 import ImageIO
 
+final class CatImageLoader {
+    static let shared = CatImageLoader()
+    private let cache = NSCache<NSString, UIImage>()
+    private let semaphore = AsyncSemaphore(value: 4) // 동시 4개만
+
+    func load(urlString: String, targetSize: CGSize, scale: CGFloat) async throws -> UIImage {
+        if let cached = cache.object(forKey: urlString as NSString) {
+            return cached
+        }
+
+        await semaphore.wait()
+        defer { semaphore.signal() }
+
+        // 캐시 재확인(대기 중 다른 task가 채웠을 수도)
+        if let cached = cache.object(forKey: urlString as NSString) {
+            return cached
+        }
+
+        let url = URL(string: urlString)!
+        let image = try await ImageDownsamplingManager.downsample(
+            remoteURL: url,
+            to: targetSize,
+            scale: scale
+        )
+        cache.setObject(image, forKey: urlString as NSString)
+        return image
+    }
+}
+
+// 간단 AsyncSemaphore
+actor AsyncSemaphore {
+    private var value: Int
+    private var waiters: [CheckedContinuation<Void, Never>] = []
+
+    init(value: Int) { self.value = value }
+
+    func wait() async {
+        if value > 0 {
+            value -= 1
+            return
+        }
+        await withCheckedContinuation { cont in
+            waiters.append(cont)
+        }
+    }
+
+    func signal() {
+        if waiters.isEmpty {
+            value += 1
+        } else {
+            waiters.removeFirst().resume()
+        }
+    }
+}
+
 enum ImageDownsamplingManager {
     static func downsample(
         data: Data,
