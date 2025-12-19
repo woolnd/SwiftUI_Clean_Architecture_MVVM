@@ -13,23 +13,21 @@ struct CatPhotoView: View {
     var body: some View {
         VStack(spacing: 0) {
             Group {
-                if let url = viewModel.imageURL {
-                    AsyncImage(url: url) { image in
-                        image.resizable().scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
+                if viewModel.isLoading {
+                    SkeletonView()
+                        .frame(width: 200, height: 200)
+                } else if let uiImage = viewModel.uiImage {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                    
                 } else {
-                    if !viewModel.isLoading{
-                        Text("아직 불러온 사진이 없어요.")
-                            .foregroundStyle(.secondary)
-                    }
+                    Text("아직 불러온 사진이 없어요.")
+                        .foregroundStyle(.secondary)
+                        .frame(width: 200, height: 200)
                 }
-            }
-            .frame(maxHeight: 320)
-            
-            if viewModel.isLoading {
-                ProgressView("불러오는 중...")
+                
             }
             
             if let message = viewModel.errorMessage {
@@ -48,6 +46,9 @@ struct CatPhotoView: View {
         .onDisappear(){
             viewModel.cancel()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)) { _ in
+            viewModel.uiImage = nil
+        }
     }
 }
 
@@ -62,11 +63,11 @@ struct CatPhotoView: View {
 
 private final class PreviewFetchCatPhotoUseCase: UseCase {
     private let completion: (Result<CatPhoto, APIError>) -> Void
-
+    
     init(completion: @escaping (Result<CatPhoto, APIError>) -> Void) {
         self.completion = completion
     }
-
+    
     func start() -> Cancellable? {
         completion(.success(
             CatPhoto(url: URL(string: "https://cataas.com/cat")!)
