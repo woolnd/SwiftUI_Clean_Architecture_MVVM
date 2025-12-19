@@ -9,26 +9,25 @@ import SwiftUI
 
 struct CatPhotoView: View {
     @StateObject var viewModel: CatPhotoViewModel
-    @State private var uiImage: UIImage?
     
     var body: some View {
         VStack(spacing: 0) {
             Group {
-                if let uiImage {
+                if viewModel.isLoading {
+                    SkeletonView()
+                        .frame(width: 200, height: 200)
+                } else if let uiImage = viewModel.uiImage {
                     Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
+                    
                 } else {
-                    if !viewModel.isLoading{
-                        Text("아직 불러온 사진이 없어요.")
-                            .foregroundStyle(.secondary)
-                    }
+                    Text("아직 불러온 사진이 없어요.")
+                        .foregroundStyle(.secondary)
+                        .frame(width: 200, height: 200)
                 }
-            }
-            
-            if viewModel.isLoading {
-                ProgressView("불러오는 중...")
+                
             }
             
             if let message = viewModel.errorMessage {
@@ -44,24 +43,6 @@ struct CatPhotoView: View {
             .padding()
         }
         .padding()
-        .onChange(of: viewModel.imageURL) { _, newURL in
-            Task {
-                guard let url = newURL else {
-                    uiImage = nil
-                    return
-                }
-                
-                do {
-                    uiImage = try await ImageDownsamplingManager.downsample(
-                        remoteURL: url,
-                        to: CGSize(width: 200, height: 200)
-                    )
-                } catch {
-                    print("이미지 다운샘플링 실패: \(error)")
-                    uiImage = nil
-                }
-            }
-        }
         .onDisappear(){
             viewModel.cancel()
         }
