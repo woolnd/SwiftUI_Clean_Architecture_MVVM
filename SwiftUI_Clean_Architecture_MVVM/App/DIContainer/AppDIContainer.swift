@@ -12,6 +12,10 @@ final class AppDIContainer {
         DefaultAPIClient(baseURL: URL(string: "https://cataas.com")!)
     }()
     
+    func makeMainSceneDIContainer() -> MainSceneDIContainer {
+        MainSceneDIContainer(appDIContainer: self)
+    }
+    
     func makeCatPhotoSceneDIContainer() -> CatPhotoSceneDIContainer {
         CatPhotoSceneDIContainer(apiClient: apiClient)
     }
