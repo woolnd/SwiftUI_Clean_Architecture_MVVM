@@ -105,36 +105,45 @@ open SwiftUI_Clean_Architecture_MVVM.xcodeproj
 ## 📁 프로젝트 구조
 
 ```
-CatRandomPhotoApp/
+SwiftUI_Clean_Architecture_MVVM/
+├── App/
+│   ├── AppFlowCoordinator.swift
+│   ├── SwiftUI_Clean_Architecture_MVVMApp.swift
+│   └── DIContainer/
+│       ├── AppDIContainer.swift
+│       └── CatPhotoSceneDIContainer.swift
 ├── Presentation/
-│   ├── Views/
-│   │   └── CatPhotoView.swift
-│   └── ViewModels/
-│       └── CatPhotoViewModel.swift
+│   └── CatPhotoView/
+│       ├── CatPhotoViewModel.swift
+│       └── CatPhotoView.swift
 ├── Domain/
 │   ├── Entities/
 │   │   └── CatPhoto.swift
 │   ├── UseCases/
+│   │   ├── Protocol/
+│   │   │   └── UseCase.swift
 │   │   └── FetchCatPhotoUseCase.swift
 │   └── Repositories/
-│       ├── CatPhotoRepository.swift
-│       └── ImageCacheRepository.swift
+│       └── CatPhotoRepository.swift
 ├── Data/
-│   ├── Repositories/
-│   │   ├── CatPhotoRepositoryImpl.swift
-│   │   └── ImageCacheRepositoryImpl.swift
-│   ├── DataSources/
-│   │   ├── CatAPIDataSource.swift
-│   │   └── ImageCacheDataSource.swift
-│   ├── Cache/
-│   │   ├── MemoryCache.swift
-│   │   └── DiskCache.swift
-│   └── DTOs/
-│       └── CatPhotoDTO.swift
-└── App/
-    ├── DI/
-    │   └── AppContainer.swift
-    └── CatRandomPhotoApp.swift
+│   ├── Network/
+│   │   ├── DataMapping/
+│   │   │   ├── CatPhotoRequestDTO+Mapping.swift
+│   │   │   ├── CatPhotoResponseDTO+Mapping.swift
+│   │   │   └── APIEndpoints.swift
+│   │   └── Cache/
+│   │       └── ImageCache.swift
+│   └── Repositories/
+│       └── DefaultCatPhotoRepository.swift
+├── Infrastructure/
+│   └── Network/
+│       ├── APIError.swift
+│       ├── Endpoint.swift
+│       └── APIClient.swift
+├── Common/
+│   └── Cancellable.swift
+└── Resources/
+    └── Assets.xcassets
 ```
 
 ## 🔗 API 엔드포인트
