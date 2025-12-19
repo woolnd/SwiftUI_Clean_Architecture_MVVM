@@ -46,6 +46,9 @@ struct CatPhotoView: View {
         .onDisappear(){
             viewModel.cancel()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)) { _ in
+            viewModel.uiImage = nil
+        }
     }
 }
 

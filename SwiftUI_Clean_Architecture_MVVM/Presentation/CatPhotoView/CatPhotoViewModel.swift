@@ -50,6 +50,10 @@ final class CatPhotoViewModel: ObservableObject {
     func cancel() {
         cancellable?.cancel()
         cancellable = nil
+        
+        imageTask?.cancel()
+        imageTask = nil
+        
         isLoading = false
     }
     
