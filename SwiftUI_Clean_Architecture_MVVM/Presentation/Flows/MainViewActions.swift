@@ -8,6 +8,6 @@
 import Foundation
 
 struct MainViewActions {
-    let showCustom: () -> Void
+    let showSingle: () -> Void
     let showFeed: () -> Void
 }

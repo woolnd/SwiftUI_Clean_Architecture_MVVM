@@ -12,7 +12,7 @@ struct MainView: View {
 
     var body: some View {
         VStack(spacing: 30) {
-            Button("사용자 설정 이미지 보기") { actions.showCustom() }
+            Button("사용자 설정 이미지 보기") { actions.showSingle() }
             Button("이미지 피드 보기") { actions.showFeed() }
         }
         .padding()

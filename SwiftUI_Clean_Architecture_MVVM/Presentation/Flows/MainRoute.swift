@@ -8,6 +8,6 @@
 import Foundation
 
 enum MainRoute: Hashable {
-    case custom
+    case single
     case feed
 }

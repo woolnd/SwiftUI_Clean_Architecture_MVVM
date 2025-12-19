@@ -26,7 +26,7 @@ final class MainFlowCoordinator: ObservableObject {
 
     func makeMainView() -> MainView {
         let actions = MainViewActions(
-            showCustom: { [weak self] in self?.showCustom() },
+            showSingle: { [weak self] in self?.showSingle() },
             showFeed: { [weak self] in self?.showFeed() }
         )
         return dependencies.makeMainView(actions: actions)
@@ -35,13 +35,13 @@ final class MainFlowCoordinator: ObservableObject {
     @ViewBuilder
     func makeDestination(_ route: MainRoute) -> some View {
         switch route {
-        case .custom:
+        case .single:
             dependencies.makeCatPhotoView()
         case .feed:
             dependencies.makeCatFeedView()
         }
     }
 
-    private func showCustom() { path.append(MainRoute.custom) }
+    private func showSingle() { path.append(MainRoute.single) }
     private func showFeed() { path.append(MainRoute.feed) }
 }

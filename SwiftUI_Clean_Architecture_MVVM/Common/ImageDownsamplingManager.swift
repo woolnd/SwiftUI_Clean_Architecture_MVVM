@@ -13,7 +13,7 @@ enum ImageDownsamplingManager {
     static func downsample(
         data: Data,
         to targetSize: CGSize,
-        scale: CGFloat,
+        scale: CGFloat = UIScreen.main.scale,
         shouldCache: Bool = true
     ) -> UIImage? {
         
@@ -44,7 +44,7 @@ enum ImageDownsamplingManager {
     static func downsample(
         remoteURL: URL,
         to targetSize: CGSize,
-        scale: CGFloat,
+        scale: CGFloat = UIScreen.main.scale,
         shouldCache: Bool = true
     ) async throws -> UIImage {
         
