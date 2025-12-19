@@ -6,6 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6D77C2D62EF413C3005AEAE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */; };
+		6D77C2D72EF413C3005AEAE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2D32EF413C3005AEAE8 /* ContentView.swift */; };
+		6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */; };
+		6D77C2E22EF414AA005AEAE8 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */; };
+		6D77C2E42EF414CC005AEAE8 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */; };
+		6D77C2ED2EF41C90005AEAE8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2EC2EF41C90005AEAE8 /* APIError.swift */; };
+		6D77C2F02EF41D18005AEAE8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6D77C2EF2EF41D18005AEAE8 /* Alamofire */; };
+		6D77C2F22EF41D26005AEAE8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2F12EF41D26005AEAE8 /* Endpoint.swift */; };
+		6D77C2F42EF41D9B005AEAE8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2F32EF41D9B005AEAE8 /* APIClient.swift */; };
+		6D77C2F62EF4C640005AEAE8 /* CatPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2F52EF4C640005AEAE8 /* CatPhoto.swift */; };
+		6D77C2FE2EF4C750005AEAE8 /* FetchCatPhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C2FD2EF4C750005AEAE8 /* FetchCatPhotoUseCase.swift */; };
+		6D77C3012EF4C785005AEAE8 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3002EF4C785005AEAE8 /* UseCase.swift */; };
+		6D77C3042EF4C7B5005AEAE8 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3032EF4C7B5005AEAE8 /* Cancellable.swift */; };
+		6D77C3062EF4C83F005AEAE8 /* CatPhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3052EF4C83F005AEAE8 /* CatPhotoRepository.swift */; };
+		6D77C3082EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3072EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift */; };
+		6D77C30A2EF4CB57005AEAE8 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3092EF4CB57005AEAE8 /* APIEndpoints.swift */; };
+		6D77C30C2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C30B2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift */; };
+		6D77C30E2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C30D2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift */; };
+		6D77C3112EF4D38F005AEAE8 /* CatPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */; };
+		6D77C3132EF4D6A1005AEAE8 /* CatPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */; };
+		6D77C3182EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6D77C2B62EF40E20005AEAE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +51,29 @@
 		6D77C2A82EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D77C2B52EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D77C2BF2EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_Clean_Architecture_MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D77C2D32EF413C3005AEAE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Clean_Architecture_MVVMApp.swift; sourceTree = "<group>"; };
+		6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		6D77C2EC2EF41C90005AEAE8 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		6D77C2F12EF41D26005AEAE8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		6D77C2F32EF41D9B005AEAE8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		6D77C2F52EF4C640005AEAE8 /* CatPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhoto.swift; sourceTree = "<group>"; };
+		6D77C2FD2EF4C750005AEAE8 /* FetchCatPhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCatPhotoUseCase.swift; sourceTree = "<group>"; };
+		6D77C3002EF4C785005AEAE8 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		6D77C3032EF4C7B5005AEAE8 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		6D77C3052EF4C83F005AEAE8 /* CatPhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoRepository.swift; sourceTree = "<group>"; };
+		6D77C3072EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCatPhotoRepository.swift; sourceTree = "<group>"; };
+		6D77C3092EF4CB57005AEAE8 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		6D77C30B2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoRequestDTO_Mapping.swift; sourceTree = "<group>"; };
+		6D77C30D2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatPhotoResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoViewModel.swift; sourceTree = "<group>"; };
+		6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoView.swift; sourceTree = "<group>"; };
+		6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPhotoSceneDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftUI_Clean_Architecture_MVVM;
-			sourceTree = "<group>";
-		};
 		6D77C2B82EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftUI_Clean_Architecture_MVVMTests;
@@ -52,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D77C2F02EF41D18005AEAE8 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +115,7 @@
 		6D77C29F2EF40E1F005AEAE8 = {
 			isa = PBXGroup;
 			children = (
-				6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
+				6D77C2D52EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
 				6D77C2B82EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMTests */,
 				6D77C2C22EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMUITests */,
 				6D77C2A92EF40E1F005AEAE8 /* Products */,
@@ -90,6 +130,177 @@
 				6D77C2BF2EF40E20005AEAE8 /* SwiftUI_Clean_Architecture_MVVMUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6D77C2D52EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2DE2EF413EB005AEAE8 /* App */,
+				6D77C2D92EF413C8005AEAE8 /* Presentation */,
+				6D77C2DB2EF413D8005AEAE8 /* Domain */,
+				6D77C2DD2EF413E8005AEAE8 /* Data */,
+				6D77C2E82EF41C6F005AEAE8 /* Infrastructure */,
+				6D77C3022EF4C7A5005AEAE8 /* Common */,
+				6D77C2DF2EF41426005AEAE8 /* Resources */,
+			);
+			path = SwiftUI_Clean_Architecture_MVVM;
+			sourceTree = "<group>";
+		};
+		6D77C2D92EF413C8005AEAE8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C30F2EF4D375005AEAE8 /* CatPhotoView */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6D77C2DB2EF413D8005AEAE8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2E52EF416E1005AEAE8 /* Entities */,
+				6D77C2F72EF4C66D005AEAE8 /* UseCases */,
+				6D77C2F82EF4C676005AEAE8 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6D77C2DD2EF413E8005AEAE8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2FB2EF4C6D8005AEAE8 /* Network */,
+				6D77C2FA2EF4C69E005AEAE8 /* Cache */,
+				6D77C2F92EF4C694005AEAE8 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6D77C2DE2EF413EB005AEAE8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2E32EF414CC005AEAE8 /* AppFlowCoordinator.swift */,
+				6D77C2D42EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift */,
+				6D77C2E02EF4145D005AEAE8 /* DIContainer */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6D77C2DF2EF41426005AEAE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2D22EF413C3005AEAE8 /* Assets.xcassets */,
+				6D77C2D32EF413C3005AEAE8 /* ContentView.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6D77C2E02EF4145D005AEAE8 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2E12EF414AA005AEAE8 /* AppDIContainer.swift */,
+				6D77C3172EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		6D77C2E52EF416E1005AEAE8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2F52EF4C640005AEAE8 /* CatPhoto.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		6D77C2E82EF41C6F005AEAE8 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2EB2EF41C82005AEAE8 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		6D77C2EB2EF41C82005AEAE8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2EC2EF41C90005AEAE8 /* APIError.swift */,
+				6D77C2F12EF41D26005AEAE8 /* Endpoint.swift */,
+				6D77C2F32EF41D9B005AEAE8 /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6D77C2F72EF4C66D005AEAE8 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2FD2EF4C750005AEAE8 /* FetchCatPhotoUseCase.swift */,
+				6D77C2FF2EF4C76F005AEAE8 /* Protocol */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		6D77C2F82EF4C676005AEAE8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C3052EF4C83F005AEAE8 /* CatPhotoRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6D77C2F92EF4C694005AEAE8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C3072EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6D77C2FA2EF4C69E005AEAE8 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		6D77C2FB2EF4C6D8005AEAE8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C2FC2EF4C6E3005AEAE8 /* DataMapping */,
+				6D77C3092EF4CB57005AEAE8 /* APIEndpoints.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6D77C2FC2EF4C6E3005AEAE8 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C30B2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift */,
+				6D77C30D2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		6D77C2FF2EF4C76F005AEAE8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C3002EF4C785005AEAE8 /* UseCase.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6D77C3022EF4C7A5005AEAE8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C3032EF4C7B5005AEAE8 /* Cancellable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6D77C30F2EF4D375005AEAE8 /* CatPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				6D77C3102EF4D38F005AEAE8 /* CatPhotoViewModel.swift */,
+				6D77C3122EF4D6A1005AEAE8 /* CatPhotoView.swift */,
+			);
+			path = CatPhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +318,9 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				6D77C2AA2EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM */,
-			);
 			name = SwiftUI_Clean_Architecture_MVVM;
 			packageProductDependencies = (
+				6D77C2EF2EF41D18005AEAE8 /* Alamofire */,
 			);
 			productName = SwiftUI_Clean_Architecture_MVVM;
 			productReference = 6D77C2A82EF40E1F005AEAE8 /* SwiftUI_Clean_Architecture_MVVM.app */;
@@ -195,6 +404,9 @@
 			);
 			mainGroup = 6D77C29F2EF40E1F005AEAE8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6D77C2EE2EF41D18005AEAE8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6D77C2A92EF40E1F005AEAE8 /* Products */;
 			projectDirPath = "";
@@ -212,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D77C2D62EF413C3005AEAE8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +449,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D77C3062EF4C83F005AEAE8 /* CatPhotoRepository.swift in Sources */,
+				6D77C30A2EF4CB57005AEAE8 /* APIEndpoints.swift in Sources */,
+				6D77C3112EF4D38F005AEAE8 /* CatPhotoViewModel.swift in Sources */,
+				6D77C30C2EF4CB7E005AEAE8 /* CatPhotoRequestDTO_Mapping.swift in Sources */,
+				6D77C3082EF4CADD005AEAE8 /* DefaultCatPhotoRepository.swift in Sources */,
+				6D77C2E42EF414CC005AEAE8 /* AppFlowCoordinator.swift in Sources */,
+				6D77C3132EF4D6A1005AEAE8 /* CatPhotoView.swift in Sources */,
+				6D77C2F42EF41D9B005AEAE8 /* APIClient.swift in Sources */,
+				6D77C2D72EF413C3005AEAE8 /* ContentView.swift in Sources */,
+				6D77C2D82EF413C3005AEAE8 /* SwiftUI_Clean_Architecture_MVVMApp.swift in Sources */,
+				6D77C2F62EF4C640005AEAE8 /* CatPhoto.swift in Sources */,
+				6D77C3012EF4C785005AEAE8 /* UseCase.swift in Sources */,
+				6D77C3182EF4DCA2005AEAE8 /* CatPhotoSceneDIContainer.swift in Sources */,
+				6D77C2ED2EF41C90005AEAE8 /* APIError.swift in Sources */,
+				6D77C3042EF4C7B5005AEAE8 /* Cancellable.swift in Sources */,
+				6D77C30E2EF4CB87005AEAE8 /* CatPhotoResponseDTO+Mapping.swift in Sources */,
+				6D77C2F22EF41D26005AEAE8 /* Endpoint.swift in Sources */,
+				6D77C2E22EF414AA005AEAE8 /* AppDIContainer.swift in Sources */,
+				6D77C2FE2EF4C750005AEAE8 /* FetchCatPhotoUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +810,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6D77C2EE2EF41D18005AEAE8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6D77C2EF2EF41D18005AEAE8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D77C2EE2EF41D18005AEAE8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6D77C2A02EF40E1F005AEAE8 /* Project object */;
 }
