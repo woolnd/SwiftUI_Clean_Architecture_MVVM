@@ -20,8 +20,10 @@ struct CatPhotoView: View {
                         ProgressView()
                     }
                 } else {
-                    Text("아직 불러온 사진이 없어요.")
-                        .foregroundStyle(.secondary)
+                    if !viewModel.isLoading{
+                        Text("아직 불러온 사진이 없어요.")
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             .frame(maxHeight: 320)
