@@ -9,16 +9,16 @@ import SwiftUI
 
 struct CatPhotoView: View {
     @StateObject var viewModel: CatPhotoViewModel
+    @State private var uiImage: UIImage?
     
     var body: some View {
         VStack(spacing: 0) {
             Group {
-                if let url = viewModel.imageURL {
-                    AsyncImage(url: url) { image in
-                        image.resizable().scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
+                if let uiImage {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
                 } else {
                     if !viewModel.isLoading{
                         Text("아직 불러온 사진이 없어요.")
@@ -26,7 +26,6 @@ struct CatPhotoView: View {
                     }
                 }
             }
-            .frame(maxHeight: 320)
             
             if viewModel.isLoading {
                 ProgressView("불러오는 중...")
@@ -45,6 +44,24 @@ struct CatPhotoView: View {
             .padding()
         }
         .padding()
+        .onChange(of: viewModel.imageURL) { _, newURL in
+            Task {
+                guard let url = newURL else {
+                    uiImage = nil
+                    return
+                }
+                
+                do {
+                    uiImage = try await ImageDownsamplingManager.downsample(
+                        remoteURL: url,
+                        to: CGSize(width: 200, height: 200)
+                    )
+                } catch {
+                    print("이미지 다운샘플링 실패: \(error)")
+                    uiImage = nil
+                }
+            }
+        }
         .onDisappear(){
             viewModel.cancel()
         }
@@ -62,11 +79,11 @@ struct CatPhotoView: View {
 
 private final class PreviewFetchCatPhotoUseCase: UseCase {
     private let completion: (Result<CatPhoto, APIError>) -> Void
-
+    
     init(completion: @escaping (Result<CatPhoto, APIError>) -> Void) {
         self.completion = completion
     }
-
+    
     func start() -> Cancellable? {
         completion(.success(
             CatPhoto(url: URL(string: "https://cataas.com/cat")!)
