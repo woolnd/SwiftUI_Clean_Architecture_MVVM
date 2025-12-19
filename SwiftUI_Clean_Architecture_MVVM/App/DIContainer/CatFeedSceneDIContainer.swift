@@ -31,9 +31,9 @@ final class CatFeedSceneDIContainer {
     func makeCatFeedViewModel() -> CatFeedViewModel {
         let repo = makeCatFeedRepository()
         
-        return CatFeedViewModel { completion in
+        return CatFeedViewModel { limit, skip, completion in
             FetchCatFeedUseCase(
-                requestValue: .init(limit: 10, skip: 0),
+                requestValue: .init(limit: limit, skip: skip),
                 completion: completion,
                 catFeedRepository: repo
             )

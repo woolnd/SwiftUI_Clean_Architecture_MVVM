@@ -36,37 +36,18 @@ struct CatFeedView: View {
                             )
                             .frame(width: side, height: side)
                             .clipped()
+                            .onAppear {
+                                viewModel.loadMoreIfNeeded(currentItem: item)
+                            }
                         }
                     }
                     .padding(.horizontal, horizontalPadding)
             }
         }
-        .onAppear(){
-            viewModel.fetch()
+        .onAppear {
+            if viewModel.items.isEmpty {
+                viewModel.refresh()
+            }
         }
-    }
-}
-
-#Preview {
-    CatFeedView(
-        viewModel: CatFeedViewModel { completion in
-            PreviewFetchCatFeedUseCase(completion: completion)
-        }
-    )
-}
-
-
-private final class PreviewFetchCatFeedUseCase: UseCase {
-    private let completion: (Result<CatFeed, APIError>) -> Void
-    
-    init(completion: @escaping (Result<CatFeed, APIError>) -> Void) {
-        self.completion = completion
-    }
-    
-    func start() -> Cancellable? {
-        completion(.success(
-            [CatFeedItem(id: "", tags: [""], mimetype: "", createdAt: "")])
-        )
-        return nil
     }
 }

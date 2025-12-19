@@ -15,33 +15,72 @@ final class CatFeedViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     
-    private let fetchUseCase: (_ completion: @escaping (Result<CatFeed, APIError>) -> Void) -> UseCase
+    private let fetchUseCase:
+    (_ limit: Int64, _ skip: Int64,
+     _ completion: @escaping (Result<CatFeed, APIError>) -> Void) -> UseCase
     private var cancellable: Cancellable?
     private var imageTask: Task<Void, Never>?
     
-    init(
-        fetchUseCase: @escaping (_: @escaping (Result<CatFeed, APIError>) -> Void)
-        -> UseCase) {
-            self.fetchUseCase = fetchUseCase
-        }
+    private let pageSize: Int64 = 30
+    private var isFetchingNext = false
+    private var hasMore = true
     
-    func fetch(limit: Int64 = 10, skip: Int64 = 0) {
+    init(
+        fetchUseCase:
+        @escaping (_ limit: Int64, _ skip: Int64,
+                   _ completion: @escaping (Result<CatFeed, APIError>) -> Void) -> UseCase) {
+        self.fetchUseCase = fetchUseCase
+    }
+    
+    func refresh() {
         cancellable?.cancel()
+        items = []
         errorMessage = nil
-        isLoading = true
+        hasMore = true
+        isFetchingNext = false
+        fetchNextPage()
+    }
+    
+    func fetchNextPage() {
+        guard !isFetchingNext, hasMore else { return }
         
-        let useCase = fetchUseCase{ [weak self] result in
+        isFetchingNext = true
+        errorMessage = nil
+        isLoading = items.isEmpty
+        
+        let skip = Int64(items.count)
+        let limit = pageSize
+        
+        let useCase = fetchUseCase(limit, skip) { [weak self] result in
             guard let self else { return }
+            self.isFetchingNext = false
+            self.isLoading = false
             
             switch result {
-            case .success(let catFeed):
-                self.items = catFeed
+            case .success(let feed):
+                let newItems = feed
+                
+                if newItems.count < Int(limit) { self.hasMore = false }
+                
+                let existing = Set(self.items.map(\.id))
+                let filtered = newItems.filter { !existing.contains($0.id) }
+                
+                self.items.append(contentsOf: filtered)
+                
             case .failure(let error):
                 self.errorMessage = self.mapError(error)
             }
         }
         
-        self.cancellable = useCase.start()
+        cancellable = useCase.start()
+    }
+    
+    func loadMoreIfNeeded(currentItem item: CatFeedItem) {
+        let threshold = 9
+        guard let idx = items.firstIndex(where: { $0.id == item.id }) else { return }
+        if idx >= items.count - threshold {
+            fetchNextPage()
+        }
     }
     
     func cancel() {
