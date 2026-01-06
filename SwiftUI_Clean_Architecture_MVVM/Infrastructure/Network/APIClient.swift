@@ -34,29 +34,40 @@ final class DefaultAPIClient: APIClient {
         var mergedHeaders = commonHeaders
         endpoint.headers?.forEach { mergedHeaders.add($0) }
         
-        return try await withCheckedThrowingContinuation { continuation in
-            session.request(
-                url,
-                method: endpoint.method,
-                parameters: endpoint.parameters,
-                encoding: endpoint.method == .get ? URLEncoding.default : JSONEncoding.default,
-                headers: mergedHeaders
-            )
-            .validate(statusCode: 200..<300)
-            .responseDecodable(of: T.self) { response in
-                switch response.result {
-                case .success(let value):
-                    continuation.resume(returning: value)
-                    
-                case .failure(let error):
-                    let apiError = self.handleError(error, response: response)
-                    continuation.resume(throwing: apiError)
+        let request = session.request(
+            url,
+            method: endpoint.method,
+            parameters: endpoint.parameters,
+            encoding: endpoint.method == .get ? URLEncoding.default : JSONEncoding.default,
+            headers: mergedHeaders
+        )
+        
+        return try await withTaskCancellationHandler {
+            try await withCheckedThrowingContinuation { continuation in
+                request.responseDecodable(of: T.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        continuation.resume(returning: value)
+                    case .failure(let error):
+                        let apiError = self.handleError(error, response: response)
+                        continuation.resume(throwing: apiError)
+                    }
                 }
             }
+        } onCancel: {
+            request.cancel()
         }
+
     }
     
     private func handleError<T>(_ error: AFError, response: AFDataResponse<T>) -> APIError {
+        
+        // Alamofire 요청 취소 (Task cancel 포함)
+        if error.isExplicitlyCancelledError {
+            return .cancelled
+        }
+        
+        
         // HTTP 상태 코드 체크
         if let statusCode = response.response?.statusCode {
             if statusCode == 401 {
